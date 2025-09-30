@@ -9,3 +9,4 @@ Express.js Workshop from JS Back-End SoftUni Course
     "dev": "node --watch src/index.js"
     "type": "module"
     ```
+- [x] Add Express Server npm i express
