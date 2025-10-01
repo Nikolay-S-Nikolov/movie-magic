@@ -1,6 +1,7 @@
 # movie-magic
 Express.js Workshop from JS Back-End SoftUni Course
 
+## Setup
 - [x] Initialize Project
   - `npm init -y`
   - update package.json
@@ -16,7 +17,12 @@ Express.js Workshop from JS Back-End SoftUni Course
 - [x] Setup static files
 - [x] Add layout
 - [x] Add about page
+
+## Architecture and dynamic rendering
 - [x] Add home controller
 - [x] Add Movie model and data
 - [x] Add movieService
 - [x] Render dynamic movies on home page
+
+## Create Movie
+- [x] Add Movie Controller and show create page
