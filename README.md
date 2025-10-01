@@ -18,3 +18,5 @@ Express.js Workshop from JS Back-End SoftUni Course
 - [x] Add about page
 - [x] Add home controller
 - [x] Add Movie model and data
+- [x] Add movieService
+- [x] Render dynamic movies on home page
