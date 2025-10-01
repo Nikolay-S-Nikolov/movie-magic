@@ -17,3 +17,4 @@ Express.js Workshop from JS Back-End SoftUni Course
 - [x] Add layout
 - [x] Add about page
 - [x] Add home controller
+- [x] Add Movie model and data
