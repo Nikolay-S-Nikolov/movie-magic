@@ -1,0 +1,15 @@
+{
+    "configurations": [
+        {
+            "name": "Debug",
+            "program": "${workspaceFolder}/src/index.js",
+            "request": "launch",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "type": "node",
+            "runtimeArgs": ["--watch"]
+        },
+
+    ]
+}
