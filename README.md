@@ -16,3 +16,4 @@ Express.js Workshop from JS Back-End SoftUni Course
 - [x] Setup static files
 - [x] Add layout
 - [x] Add about page
+- [x] Add home controller
