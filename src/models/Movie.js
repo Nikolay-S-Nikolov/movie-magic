@@ -11,11 +11,18 @@ export default class Movie {
         this._id = uuid();
     }
 
-    static find() {
-        return db.movies.slice();
+    static find(filter = {}) {
+        let result = db.movies.slice();
+
+        if (filter.title) {
+            result = result.filter(m => m.title.toLowerCase().includes(filter.title.toLowerCase()));
+        }
+        
+        return result;
+
     }
 
-    static findOne(filter={}) {
+    static findOne(filter = {}) {
         let result = db.movies[0]
 
         if (filter._id) {
