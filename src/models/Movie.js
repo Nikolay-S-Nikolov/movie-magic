@@ -17,7 +17,15 @@ export default class Movie {
         if (filter.title) {
             result = result.filter(m => m.title.toLowerCase().includes(filter.title.toLowerCase()));
         }
-        
+
+        if (filter.genre) {
+            result = result.filter(m => m.genre.toLowerCase() == filter.genre.toLowerCase());
+        }
+
+        if (filter.year) {
+            result = result.filter(m => m.year == filter.year);
+        }
+
         return result;
 
     }

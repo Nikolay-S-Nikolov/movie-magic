@@ -46,4 +46,8 @@ Express.js Workshop from JS Back-End SoftUni Course
 
 - [x]  Add search page rout and show static search page
 - [x]  Create movie partial and show all movies in search page
-- [x]  Modify search form and filter by title case insensitive
+- [x]  Modify search form
+- [x]  Add search by
+    - [x] title case insensitive 
+    - [x] year 
+    - [x] genre case insensitive 
