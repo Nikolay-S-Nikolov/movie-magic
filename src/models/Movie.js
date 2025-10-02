@@ -15,6 +15,15 @@ export default class Movie {
         return db.movies.slice();
     }
 
+    static findOne(filter={}) {
+        let result = db.movies[0]
+
+        if (filter._id) {
+            result = db.movies.find(m => m._id == filter._id);
+        }
+        return result;
+    }
+
     get id() {
         return this._id;
     }
