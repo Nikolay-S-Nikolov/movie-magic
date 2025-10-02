@@ -26,3 +26,5 @@ Express.js Workshop from JS Back-End SoftUni Course
 
 ## Create Movie
 - [x] Add Movie Controller and show create page
+- [x]  Add routes
+- [x]  Add 404 page
