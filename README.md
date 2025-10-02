@@ -40,3 +40,4 @@ Express.js Workshop from JS Back-End SoftUni Course
 - [x]  Add get movie by id to movie service
 - [x]  Add route for detail page with move parameters
 - [x]  Render details page with dynamic data 
+- [x]  Show rating with stars
