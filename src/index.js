@@ -14,6 +14,9 @@ app.set('views', 'src/views');
 // Setup static files serving middlewere
 app.use(express.static('src/public'));
 
+// Middleware to parse URL-encoded form data
+app.use(express.urlencoded());
+
 // Routes
 app.use(routes);
 
