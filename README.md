@@ -33,4 +33,9 @@ Express.js Workshop from JS Back-End SoftUni Course
 - [x]  Add save metod in Movie model and create in movieService
 - [x]  Generate unique id for created movie `npm install uuid`
 - [x]  Add data persistance using fs/promises
-- [x]  Add movie details page
+
+## Details Movie
+- [x]  Add movie details page and update href details button in home page
+- [x]  Add find movie by id to Movie model
+- [x]  Add get movie by id to movie service
+- [x]  Add route for detail page with move parameters
