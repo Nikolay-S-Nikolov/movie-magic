@@ -45,3 +45,4 @@ Express.js Workshop from JS Back-End SoftUni Course
 ## Search
 
 - [x]  Add search page rout and show static search page
+- [x]  Create movie partial and show all movies in search page
