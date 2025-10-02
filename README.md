@@ -29,3 +29,4 @@ Express.js Workshop from JS Back-End SoftUni Course
 - [x]  Add routes
 - [x]  Add 404 page
 - [x]  Add URL-encoded form data parser `express.urlencoded()`
+- [x]  Refactor create page
