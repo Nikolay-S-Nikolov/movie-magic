@@ -12,4 +12,8 @@ movieController.post('/create', async (req, res) => {
     res.redirect('/');
 });
 
+movieController.get('/details', (req, res) => {    
+    res.render('details');
+});
+
 export default movieController;
