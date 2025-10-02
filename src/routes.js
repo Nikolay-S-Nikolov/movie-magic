@@ -8,7 +8,7 @@ routes.use('/',homeController);
 routes.use('/movies', movieController);
 
 routes.get('/*splash', (req, res) => {
-    res.render('404');
+    res.render('404', { pageTitle: '404 Page' });
 }); 
 
 export default routes;

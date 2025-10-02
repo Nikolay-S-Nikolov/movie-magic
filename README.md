@@ -52,3 +52,7 @@ Express.js Workshop from JS Back-End SoftUni Course
     - [x] year 
     - [x] genre case insensitive 
 - [x] Remember search words
+
+## Bonuses
+
+- [x] Show dynamic page title
