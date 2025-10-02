@@ -30,3 +30,4 @@ Express.js Workshop from JS Back-End SoftUni Course
 - [x]  Add 404 page
 - [x]  Add URL-encoded form data parser `express.urlencoded()`
 - [x]  Refactor create page
+- [x]  Add save metod in Movie model and create in movieService
