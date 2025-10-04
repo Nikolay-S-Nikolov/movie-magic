@@ -7,7 +7,7 @@ const routes = Router();
 
 routes.use('/',homeController);
 routes.use('/movies', movieController);
-routes.use('/cast', castController);
+routes.use('/casts', castController);
 
 routes.get('/*splash', (req, res) => {
     res.render('404', { pageTitle: '404 Page' });
