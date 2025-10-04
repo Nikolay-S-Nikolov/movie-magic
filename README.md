@@ -103,3 +103,6 @@ Express.js Workshop from JS Back-End SoftUni Course
 - [x] Show cast list in attach select
 - [x] Add one to many relation between Movie and Cast models
 - [x] Attach cast to movie
+
+### Show Cast Details (population)
+- [x] Add service methot to filter casts
