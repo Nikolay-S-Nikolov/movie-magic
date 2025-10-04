@@ -18,11 +18,17 @@ try {
 }
 
 // Handlebars setup
-app.engine('hbs', handlebars.engine({ extname: '.hbs' }));
+app.engine('hbs', handlebars.engine({
+    extname: '.hbs',
+    runtimeOptions: {
+        allowProtoMethodsByDefault: true,
+        allowProtoPropertiesByDefault: true
+    }
+}));
 app.set('view engine', 'hbs');
 app.set('views', 'src/views');
 
-// Setup static files serving middlewere
+// Setup static files serving middleware
 app.use(express.static('src/public'));
 
 // Middleware to parse URL-encoded form data

@@ -84,3 +84,4 @@ Express.js Workshop from JS Back-End SoftUni Course
    - [x] Create movie model
  - [x] Import data to database
  - [x] Fix own property handlebars problem with lean method
+ - [x] General fix for own property problem

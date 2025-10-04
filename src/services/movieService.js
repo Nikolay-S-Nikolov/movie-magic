@@ -1,16 +1,17 @@
 import Movie from '../models/Movie.js';
 
 export default {
-    async getAll(filter) {
-        const result =  await Movie.find(filter).lean();
-        return result
+    getAll(filter) {
+        const result = Movie.find(filter);
+        // const result =  await Movie.find(filter).lean();
+        return result;
     },
 
     getOne(movieId) {
-        return Movie.findOne({_id: movieId});
+        return Movie.findOne({ _id: movieId });
     },
 
-    create(movieData){
+    create(movieData) {
         movieData.rating = Number(movieData.rating);
         const movie = new Movie(movieData);
         return movie.save();

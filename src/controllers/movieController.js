@@ -12,16 +12,16 @@ movieController.post('/create', async (req, res) => {
     res.redirect('/');
 });
 
-movieController.get('/:movieId/details', (req, res) => {
+movieController.get('/:movieId/details', async(req, res) => {
     const movieId = req.params.movieId;
-    const movie = movieService.getOne(movieId);
+    const movie = await movieService.getOne(movieId);
     const rating = '&#x2605;'.repeat(Math.floor(movie.rating));
     res.render('details', { movie, rating, pageTitle: movie.title });
 });
 
-movieController.get('/search', (req, res) => {
+movieController.get('/search', async (req, res) => {
     const filter = req.query;
-    const movies = movieService.getAll(filter);
+    const movies = await movieService.getAll(filter);
     res.render('search', { movies, filter, pageTitle: 'Search Page' });
 });
 
