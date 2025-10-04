@@ -1,5 +1,8 @@
 import { Router } from 'express';
+
 import movieService from '../services/movieService.js';
+import castService from '../services/castService.js';
+
 const movieController = Router();
 
 movieController.get('/create', (req, res) => {
@@ -12,7 +15,7 @@ movieController.post('/create', async (req, res) => {
     res.redirect('/');
 });
 
-movieController.get('/:movieId/details', async(req, res) => {
+movieController.get('/:movieId/details', async (req, res) => {
     const movieId = req.params.movieId;
     const movie = await movieService.getOne(movieId);
     const rating = '&#x2605;'.repeat(Math.floor(movie.rating));
@@ -25,9 +28,10 @@ movieController.get('/search', async (req, res) => {
     res.render('search', { movies, filter, pageTitle: 'Search Page' });
 });
 
-movieController.get('/:movieId/attach', async (req,res)=>{
+movieController.get('/:movieId/attach', async (req, res) => {
     const movieId = req.params.movieId
     const movie = await movieService.getOne(movieId)
-    res.render('casts/attach', {movie})
+    const casts = await castService.getAll()
+    res.render('casts/attach', { movie, casts })
 })
 export default movieController;
