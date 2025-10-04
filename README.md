@@ -114,3 +114,4 @@ Express.js Workshop from JS Back-End SoftUni Course
 
 - [x] Show only not attached casts in attach page
 - [x] Env variables
+- [x] Add movie views to a folder
