@@ -101,3 +101,4 @@ Express.js Workshop from JS Back-End SoftUni Course
 - [x] Add button attach cast in Movie details page
 - [x] Add attach cast page with dynamic data
 - [x] Show cast list in attach select
+- [x] Add one to many relation between Movie and Cast models
