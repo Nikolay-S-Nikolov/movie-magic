@@ -94,3 +94,8 @@ Express.js Workshop from JS Back-End SoftUni Course
 - [x] Add folder views/casts for catst views
 - [x] Add cast Model
 - [x] Add cast service and create method
+- [x] Refactor create form and add create Cast functionallity
+
+### Create relation bteween Cast and Movie
+
+- [x] Add button attach cast in Movie details page
