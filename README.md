@@ -1,7 +1,9 @@
 # movie-magic
 Express.js Workshop from JS Back-End SoftUni Course
 
-## Setup
+## Workshop 1 - Express and Templating
+
+### Setup
 - [x] Initialize Project
   - `npm init -y`
   - update package.json
@@ -18,13 +20,13 @@ Express.js Workshop from JS Back-End SoftUni Course
 - [x] Add layout
 - [x] Add about page
 
-## Architecture and dynamic rendering
+### Architecture and dynamic rendering
 - [x] Add home controller
 - [x] Add Movie model and data
 - [x] Add movieService
 - [x] Render dynamic movies on home page
 
-## Create Movie
+### Create Movie
 - [x] Add Movie Controller and show create page
 - [x]  Add routes
 - [x]  Add 404 page
@@ -34,7 +36,7 @@ Express.js Workshop from JS Back-End SoftUni Course
 - [x]  Generate unique id for created movie `npm install uuid`
 - [x]  Add data persistance using fs/promises
 
-## Details Movie
+### Details Movie
 - [x]  Add movie details page and update href details button in home page
 - [x]  Add find movie by id to Movie model
 - [x]  Add get movie by id to movie service
@@ -42,7 +44,7 @@ Express.js Workshop from JS Back-End SoftUni Course
 - [x]  Render details page with dynamic data 
 - [x]  Show rating with stars
 
-## Search
+### Search
 
 - [x]  Add search page rout and show static search page
 - [x]  Create movie partial and show all movies in search page
@@ -53,6 +55,24 @@ Express.js Workshop from JS Back-End SoftUni Course
     - [x] genre case insensitive 
 - [x] Remember search words
 
-## Bonuses
+### Bonuses
 
 - [x] Show dynamic page title
+
+## Workshop 2 - MongoDB Database
+
+### Precondition
+
+- [x] Install MongoDB Community Server or use container 
+
+      `docker run -d --name mongodb -p 27017:27017 -e MONGO_INITDB_ROOT_USERNAME=admin -e MONGO_INITDB_ROOT_PASSWORD=secret -v mongodb_data:/data/db `
+
+- [x] Install Mongosh CLI ор use it from the container
+
+      `docker exec -it mongodb mongosh -u admin -p secret`
+
+- [x] Install Compass GUI and connect `mongodb://admin:secret@localhost:27017`
+
+### Setup Database
+
+- [x] Install mongoose `npm i mongoose`
