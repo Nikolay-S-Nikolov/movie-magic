@@ -2,13 +2,16 @@ import express from 'express';
 import handlebars from 'express-handlebars';
 import routes from './routes.js';
 import mongoose from 'mongoose';
+import dotenv from 'dotenv';
 
+
+dotenv.config();
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;;
 
 
 // MongoDB connection
-const DB_URL = 'mongodb://admin:secret@localhost:27017/movie_magic?authSource=admin';
+const DB_URL = process.env.DB_URL;
 
 try {
     await mongoose.connect(DB_URL);

@@ -113,3 +113,4 @@ Express.js Workshop from JS Back-End SoftUni Course
 ### Bonuses
 
 - [x] Show only not attached casts in attach page
+- [x] Env variables
