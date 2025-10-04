@@ -17,10 +17,9 @@ movieController.post('/create', async (req, res) => {
 
 movieController.get('/:movieId/details', async (req, res) => {
     const movieId = req.params.movieId;
-    const movie = await movieService.getOne(movieId);
-    const movieCast = await castService.getAll({ includes: movie.casts })
+    const movie = await movieService.getOneDetailed(movieId);
     const rating = '&#x2605;'.repeat(Math.floor(movie.rating));
-    res.render('details', { movie, rating, pageTitle: movie.title, casts:movieCast });
+    res.render('details', { movie, rating, pageTitle: movie.title });
 });
 
 movieController.get('/search', async (req, res) => {
