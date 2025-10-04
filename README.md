@@ -93,3 +93,4 @@ Express.js Workshop from JS Back-End SoftUni Course
 - [x] Create Cast Controller and render cast create page
 - [x] Add folder views/casts for catst views
 - [x] Add cast Model
+- [x] Add cast service and create method
