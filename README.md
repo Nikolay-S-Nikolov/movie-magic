@@ -77,3 +77,8 @@ Express.js Workshop from JS Back-End SoftUni Course
 
 - [x] Install mongoose `npm i mongoose`
 - [x] Connect to DB
+
+### Refactor Movies to use mongoose
+ - [x] Add movie model
+   - [x] Create movie schema
+   - [x] Create movie model
