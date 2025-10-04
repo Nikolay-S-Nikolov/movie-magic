@@ -67,7 +67,7 @@ Express.js Workshop from JS Back-End SoftUni Course
 
       `docker run -d --name mongodb -p 27017:27017 -e MONGO_INITDB_ROOT_USERNAME=admin -e MONGO_INITDB_ROOT_PASSWORD=secret -v mongodb_data:/data/db `
 
-- [x] Install Mongosh CLI ор use it from the container
+- [x] Install Mongosh CLI оr use it from the container
 
       `docker exec -it mongodb mongosh -u admin -p secret`
 
@@ -76,3 +76,4 @@ Express.js Workshop from JS Back-End SoftUni Course
 ### Setup Database
 
 - [x] Install mongoose `npm i mongoose`
+- [x] Connect to DB
