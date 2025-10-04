@@ -86,3 +86,8 @@ Express.js Workshop from JS Back-End SoftUni Course
  - [x] Fix own property handlebars problem with lean method
  - [x] General fix for own property problem
  - [x] Refactor details, create, search
+
+### Add Cast
+
+- [x] Add resources
+- [x] Create Cast Controller and render cast create page
