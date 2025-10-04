@@ -105,6 +105,11 @@ Express.js Workshop from JS Back-End SoftUni Course
 - [x] Attach cast to movie
 
 ### Show Cast Details (population)
+
 - [x] Add service methot to filter casts
 - [x] Show casts on details
 - [x] Get movie casts using population
+
+### Bonuses
+
+- [x] Show only not attached casts in attach page
