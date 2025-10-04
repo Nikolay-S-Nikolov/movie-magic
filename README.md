@@ -99,3 +99,4 @@ Express.js Workshop from JS Back-End SoftUni Course
 ### Create relation bteween Cast and Movie
 
 - [x] Add button attach cast in Movie details page
+- [x] Add attach cast page with dynamic data
