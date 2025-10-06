@@ -133,4 +133,5 @@ Express.js Workshop from JS Back-End SoftUni Course
 ### Login
 
 - [x] Add login page rout
-
+- [x] Handle login 
+  - [x] Validate user data
