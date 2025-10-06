@@ -122,11 +122,15 @@ Express.js Workshop from JS Back-End SoftUni Course
 
 - [x] Add resources
 
-### Login
+### Register
 
 - [x] Add authController and show register page
 - [x] Add User model
 - [x] Add User service
 - [x] Add User service
 - [x] Implement password hashing `npm i bcrypt`
+
+### Login
+
+- [x] Add login page rout
 
