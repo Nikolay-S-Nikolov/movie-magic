@@ -126,4 +126,5 @@ Express.js Workshop from JS Back-End SoftUni Course
 
 - [x] Add authController and show register page
 - [x] Add User model
+- [x] Add User service
 
