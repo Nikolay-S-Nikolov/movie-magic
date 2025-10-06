@@ -128,5 +128,5 @@ Express.js Workshop from JS Back-End SoftUni Course
 - [x] Add User model
 - [x] Add User service
 - [x] Add User service
-- [x] Handle registration in user controler
+- [x] Implement password hashing `npm i bcrypt`
 
