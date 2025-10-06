@@ -65,7 +65,7 @@ Express.js Workshop from JS Back-End SoftUni Course
 
 - [x] Install MongoDB Community Server or use container 
 
-      `docker run -d --name mongodb -p 27017:27017 -e MONGO_INITDB_ROOT_USERNAME=admin -e MONGO_INITDB_ROOT_PASSWORD=secret -v mongodb_data:/data/db `
+      `docker run -d --name mongodb -p 27017:27017 -e MONGO_INITDB_ROOT_USERNAME=admin -e MONGO_INITDB_ROOT_PASSWORD=secret -v mongodb_data:/data/db mongo`
 
 - [x] Install Mongosh CLI оr use it from the container
 
@@ -121,3 +121,8 @@ Express.js Workshop from JS Back-End SoftUni Course
 ### Initial Setup
 
 - [x] Add resources
+
+### Login
+
+- [x] Add authController and show register page
+
