@@ -135,3 +135,4 @@ Express.js Workshop from JS Back-End SoftUni Course
 - [x] Add login page rout
 - [x] Handle login 
   - [x] Validate user data
+  - [x] Create token `npm i jsonwebtoken`
