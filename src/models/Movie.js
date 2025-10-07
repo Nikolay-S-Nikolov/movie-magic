@@ -10,8 +10,12 @@ const movieSchema = new Schema({
     description: String,
     casts: [{
         type: Schema.Types.ObjectId,
-        ref: 'Cast'
-    }]
+        ref: 'Cast',
+    }],
+    creator:{
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+    },
 });
 
 const Movie = model('Movie', movieSchema);

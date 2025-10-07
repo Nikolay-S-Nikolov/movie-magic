@@ -153,3 +153,7 @@ Express.js Workshop from JS Back-End SoftUni Course
 
 - [x] Add context to handlebars
 - [x] Restrict navigation for authenticated and guests
+
+### Show creator control buttons
+
+- [x]  Add creator as relation to movies
