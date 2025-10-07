@@ -4,6 +4,8 @@ import routes from './routes.js';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 
+import cookieParser from 'cookie-parser';
+
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;;
@@ -35,6 +37,9 @@ app.use(express.static('src/public'));
 
 // Middleware to parse URL-encoded form data
 app.use(express.urlencoded());
+
+// Cookie parser
+app.use(cookieParser());
 
 // Routes
 app.use(routes);

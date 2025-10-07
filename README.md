@@ -141,4 +141,7 @@ Express.js Workshop from JS Back-End SoftUni Course
 ### Logout
 
 - [x] Add logout action and clear cookie
-### 
+
+### Authorization
+
+- [x] Add cookie-parser `npm i cookie-parser`
