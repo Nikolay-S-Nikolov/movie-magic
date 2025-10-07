@@ -152,4 +152,4 @@ Express.js Workshop from JS Back-End SoftUni Course
 ### Dynamic Navigation
 
 - [x] Add context to handlebars
-- [ ] Restrict navigation for authenticated and guests
+- [x] Restrict navigation for authenticated and guests
