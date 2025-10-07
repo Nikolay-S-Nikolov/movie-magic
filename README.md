@@ -169,3 +169,4 @@ Express.js Workshop from JS Back-End SoftUni Course
 ### Edit movies
 
 - [x] Show edit page with dynamic data
+- [x] Show correct movie category 
