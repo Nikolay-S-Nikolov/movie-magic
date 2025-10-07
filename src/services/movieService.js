@@ -44,4 +44,8 @@ export default {
             { new: true }
         )
     },
+
+    delete(movieId){
+        return Movie.findByIdAndDelete(movieId)
+    }
 }
