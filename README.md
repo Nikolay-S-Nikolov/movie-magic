@@ -157,3 +157,4 @@ Express.js Workshop from JS Back-End SoftUni Course
 ### Show creator control buttons
 
 - [x]  Add creator as relation to movies
+- [x]  Update movie create to add user as creator

@@ -2,17 +2,18 @@ import { Router } from 'express';
 
 import movieService from '../services/movieService.js';
 import castService from '../services/castService.js';
-import {isAuth} from '../middlewares/authMiddleware.js'
+import { isAuth } from '../middlewares/authMiddleware.js'
 
 const movieController = Router();
 
-movieController.get('/create', isAuth ,(req, res) => {
+movieController.get('/create', isAuth, (req, res) => {
     res.render('movies/create', { pageTitle: 'Create Movie' });
 });
 
-movieController.post('/create', isAuth ,async (req, res) => {
+movieController.post('/create', isAuth, async (req, res) => {
     const movieData = req.body;
-    await movieService.create(movieData);
+    const userId = req.user.id
+    await movieService.create(movieData, userId);
     res.redirect('/');
 });
 
@@ -43,7 +44,7 @@ movieController.post('/:movieId/attach', async (req, res) => {
     if (!castId || castId === 'none') {
         return res.redirect(`/movies/${movieId}/details`);
     }
-    
+
     await movieService.attach(movieId, castId);
     res.redirect(`/movies/${movieId}/details`);
 })
