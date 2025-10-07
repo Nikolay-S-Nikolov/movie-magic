@@ -136,3 +136,4 @@ Express.js Workshop from JS Back-End SoftUni Course
 - [x] Handle login 
   - [x] Validate user data
   - [x] Create token `npm i jsonwebtoken`
+  - [x] Return token to client
