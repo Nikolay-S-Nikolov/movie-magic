@@ -164,4 +164,4 @@ Express.js Workshop from JS Back-End SoftUni Course
 ###Delete movies
 
 - [x] Add delete action
-- [ ] Add creator validation
+- [x] Add creator validation before delete

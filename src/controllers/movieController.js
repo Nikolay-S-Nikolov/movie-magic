@@ -12,7 +12,7 @@ movieController.get('/create', isAuth, (req, res) => {
 
 movieController.post('/create', isAuth, async (req, res) => {
     const movieData = req.body;
-    const userId = req.user.id
+    const userId = req.user.id;
     await movieService.create(movieData, userId);
     res.redirect('/');
 });
@@ -25,7 +25,7 @@ movieController.get('/:movieId/details', async (req, res) => {
     let isCreator = false;
 
     if (req.user && movie.creator == req.user.id) {
-        isCreator = true
+        isCreator = true;
     }
 
     res.render('movies/details', { movie, rating, pageTitle: movie.title, isCreator });
@@ -38,15 +38,15 @@ movieController.get('/search', async (req, res) => {
 });
 
 movieController.get('/:movieId/attach', async (req, res) => {
-    const movieId = req.params.movieId
-    const movie = await movieService.getOne(movieId)
-    const casts = await castService.getAll({ exclude: movie.casts })
-    res.render('casts/attach', { movie, casts })
+    const movieId = req.params.movieId;
+    const movie = await movieService.getOne(movieId);
+    const casts = await castService.getAll({ exclude: movie.casts });
+    res.render('casts/attach', { movie, casts });
 })
 
 movieController.post('/:movieId/attach', async (req, res) => {
-    const castId = req.body.cast
-    const movieId = req.params.movieId
+    const castId = req.body.cast;
+    const movieId = req.params.movieId;
 
     if (!castId || castId === 'none') {
         return res.redirect(`/movies/${movieId}/details`);
@@ -56,8 +56,13 @@ movieController.post('/:movieId/attach', async (req, res) => {
     res.redirect(`/movies/${movieId}/details`);
 })
 
-movieController.get('/:movieId/delete', async (req, res) => {
-    const movieId = req.params.movieId
+movieController.get('/:movieId/delete', isAuth, async (req, res) => {
+    const movieId = req.params.movieId;
+    const movie = await movieService.getOne(movieId);
+
+    if(!movie.creator?.equals(req.user.id)){
+        return res.redirect(`/movies/${movieId}/details`)
+    }
 
     await movieService.delete(movieId);
     res.redirect(`/`);
