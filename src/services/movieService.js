@@ -47,5 +47,9 @@ export default {
 
     delete(movieId){
         return Movie.findByIdAndDelete(movieId)
-    }
+    },
+
+    edit(movieId, editedData){
+        return Movie.findByIdAndUpdate(movieId,editedData)
+    },
 }
