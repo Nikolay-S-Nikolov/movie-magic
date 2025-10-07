@@ -1,10 +1,13 @@
 import User from '../models/User.js';
 import bcrypt from 'bcrypt';
-import jwt from 'jsonwebtoken';
+import { generateAuthToken } from '../utils/tokenUtils.js'
+
 
 export default {
-    register(userData) {
-        return User.create(userData);
+    async register(userData) {
+        const user= User.create(userData);
+        const token = generateAuthToken(user);
+        return token;
     },
 
     async login(email, password) {
@@ -20,13 +23,7 @@ export default {
             throw new Error('User or password are not matching');
         }
 
-        const payload = {
-            id: user.id,
-            email: user.email,
-        };
-
-        const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '2h' });
-
+        const token = generateAuthToken(user);
         return token;
     }
 
