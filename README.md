@@ -165,3 +165,7 @@ Express.js Workshop from JS Back-End SoftUni Course
 
 - [x] Add delete action
 - [x] Add creator validation before delete
+
+### Edit movies
+
+- [x] Show edit page with dynamic data
