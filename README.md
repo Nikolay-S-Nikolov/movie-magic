@@ -137,3 +137,8 @@ Express.js Workshop from JS Back-End SoftUni Course
   - [x] Validate user data
   - [x] Create token `npm i jsonwebtoken`
   - [x] Return token to client
+
+### Logout
+
+- [x] Add logout action and clear cookie
+### 
