@@ -21,11 +21,11 @@ export default {
         }
 
         const payload = {
-            id:user.id,
-            email:user.email,
+            id: user.id,
+            email: user.email,
         };
 
-        const token = jwt.sign(payload,process.env.JWT_SECRET,{expiresIn:'2h'});
+        const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '2h' });
 
         return token;
     }

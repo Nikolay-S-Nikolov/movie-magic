@@ -4,6 +4,7 @@ import routes from './routes.js';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 
+import authMiddleware from './middlewares/authMiddleware.js'
 import cookieParser from 'cookie-parser';
 
 dotenv.config();
@@ -40,6 +41,9 @@ app.use(express.urlencoded());
 
 // Cookie parser
 app.use(cookieParser());
+
+// attach authentication authMiddleware
+app.use(authMiddleware);
 
 // Routes
 app.use(routes);

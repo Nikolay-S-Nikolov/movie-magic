@@ -145,3 +145,4 @@ Express.js Workshop from JS Back-End SoftUni Course
 ### Authorization
 
 - [x] Add cookie-parser `npm i cookie-parser`
+- [x] Add auth middleware 
