@@ -11,25 +11,30 @@ export default function authMiddleware(req, res, next) {
         const decodedToken = jws.verify(token, process.env.JWT_SECRET);
         req.user = decodedToken;
         req.isAuthenticated = true;
+
+        //Add context to handlebars
+        res.locals.user = decodedToken;
+        res.locals.isAuthenticated = true;
+
         next();
     } catch (err) {
-        res.clearCookie('auth')
-        res.redirect('auth/login')
+        res.clearCookie('auth');
+        res.redirect('auth/login');
     }
 }
 
 export function isAuth(req, res, next) {
     if (!req.isAuthenticated) {
-        return res.redirect('/auth/login')
+        return res.redirect('/auth/login');
     }
 
-    next()
+    next();
 }
 
 export function isGuest(req, res, next) {
     if (req.isAuthenticated) {
-        return res.redirect('/')
+        return res.redirect('/');
     }
 
-    next()
+    next();
 }
