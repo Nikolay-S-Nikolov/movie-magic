@@ -180,3 +180,4 @@ Express.js Workshop from JS Back-End SoftUni Course
 ### Mongoose Schema Validation
 
 - [x] Add userSchema validation
+- [x] Add movieSchema validation
