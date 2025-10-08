@@ -174,3 +174,9 @@ Express.js Workshop from JS Back-End SoftUni Course
 
 ### Bonuses
 - [x] Automatic login on register
+
+## Workshop 4 - Validation and Error Handling
+
+### Mongoose Schema Validation
+
+- [x] Add userSchema validation

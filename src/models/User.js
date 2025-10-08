@@ -4,11 +4,16 @@ import bcrypt from 'bcrypt';
 const userSchema = new Schema({
     email: {
         type: String,
-        require: true,
+        match: /^\S+@\S+\.\S+$/,
+        required: true,
+        minLength: 10,
+        unique: true,
     },
     password: {
         type: String,
-        require: true,
+        match: /^[A-Za-z0-9]+$/,
+        minLength: 6,
+        required: true,
     }
 });
 
