@@ -192,3 +192,4 @@ Express.js Workshop from JS Back-End SoftUni Course
 - [x] Register error handling
 - [x] Retain form data on error
 - [x] Add errorUtil.js for message exstraction
+- [x] Login error handling
