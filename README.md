@@ -177,10 +177,11 @@ Express.js Workshop from JS Back-End SoftUni Course
 
 ## Workshop 4 - Validation and Error Handling
 
-### Mongoose Schema Validation
+### Validation
 
 - [x] Add userSchema validation
 - [x] Add movieSchema validation
 - [x] Add castShema validation
 - [x] Add custom error messages
 - [x] Validate second password using virtuals 
+- [x] Add email validation before registration
