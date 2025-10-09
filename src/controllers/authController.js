@@ -1,6 +1,7 @@
 import { Router } from 'express';
-import authService from '../services/authService.js'
-import { isGuest, isAuth } from '../middlewares/authMiddleware.js'
+import authService from '../services/authService.js';
+import { isGuest, isAuth } from '../middlewares/authMiddleware.js';
+import { getErrorMessage } from '../utils/errorUtils.js'
 
 const authController = Router();
 
@@ -17,12 +18,7 @@ authController.post('/register', isGuest, async (req, res) => {
         res.cookie('auth', token);
         res.redirect('/');
     } catch (err) {
-        let errorMessage = 'Invalid request';
-        if (err.name == 'ValidationError') {
-            errorMessage = Object.values(err.errors).at(0).message;
-        } else {
-            errorMessage = err.message;
-        }
+        const errorMessage = getErrorMessage(err);
 
         res.status(400).render('auth/register', { error: errorMessage, user: userData });
     }
