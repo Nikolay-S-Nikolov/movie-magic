@@ -185,3 +185,7 @@ Express.js Workshop from JS Back-End SoftUni Course
 - [x] Add custom error messages
 - [x] Validate second password using virtuals 
 - [x] Add email validation before registration
+
+### Error Handling
+
+- [x] Add resources and error container
