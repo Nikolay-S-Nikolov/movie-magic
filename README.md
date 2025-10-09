@@ -195,3 +195,4 @@ Express.js Workshop from JS Back-End SoftUni Course
 - [x] Login error handling
 - [x] Movie create error handling
 - [x] Cast create error handling
+- [x] Movie details page error handling
