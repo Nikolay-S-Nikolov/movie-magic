@@ -2,38 +2,52 @@ import { Schema, model } from "mongoose";
 const movieSchema = new Schema({
     title: {
         type: String,
-        match: /^[A-Za-z0-9\s]+$/,
-        minLength: 5
+        required: [true, 'Title is required'],
+        match: [/^[A-Za-z0-9\s]+$/, 'Title should be English letters, digits, and whitespaces'],
+        minLength: [5, 'Title should be at least 5 characters long'],
     },
-    category: String,
+    category: {
+        type: String,
+        required: [true, 'Category is required'],
+        enum: {
+            values: ['tv-show', 'animation', 'movie', 'documentary', 'short-film'],
+            message: 'Category {VALUE} is not between alowed TV-show, Animation, Movie, Documentary ,Short Film'
+        },
+    },
     genre: {
         type: String,
-        match: /^[A-Za-z0-9\s]+$/,
-        minLength: 5
+        required: [true, 'Genre is required'],
+        match: [/^[A-Za-z0-9\s]+$/, 'Genre should be English letters, digits, and whitespaces'],
+        minLength: [5, 'Genre should be at least 5 characters long'],
     },
     director: {
         type: String,
-        match: /^[A-Za-z0-9\s]+$/,
-        minLength: 5
+        required: [true, 'Director name is required'],
+        match: [/^[A-Za-z0-9\s]+$/, 'Genre should be English letters, digits, and whitespaces'],
+        minLength: [5, 'Director name should be at least 5 characters long'],
     },
     year: {
         type: Number,
-        min: 1900,
-        max: 2024,
+        required: [true, 'Year is required'],
+        min: [1900, 'Movie can not be created before 1900'],
+        max: [2024, 'The year can not be after 2024'],
     },
     imageUrl: {
         type: String,
-        match: /^https?:\/\/.+/,
+        required: [true, 'Image URL is required'],
+        match: [/^https?:\/\/.+/, 'Invalid image URL'],
     },
     rating: {
         type: Number,
-        min: 1,
-        max: 5,
+        required: [true, 'Rating is required'],
+        min: [1, 'Minimum alowed rating is 1'],
+        max: [10, 'Maximum alowed rating is 10'],
     },
     description: {
         type: String,
-        match: /^[A-Za-z0-9\s]+$/,
-        minLength: 20
+        required: [true, 'Description is required'],
+        match: [/^[A-Za-z0-9\s]+$/, 'Description should be English letters, digits, and whitespaces'],
+        minLength: [20, 'Minimum length of description is 20 char'],
     },
     casts: [{
         type: Schema.Types.ObjectId,
@@ -42,6 +56,7 @@ const movieSchema = new Schema({
     creator: {
         type: Schema.Types.ObjectId,
         ref: 'User',
+        required: [true, 'Movie should have creator!'],
     },
 });
 

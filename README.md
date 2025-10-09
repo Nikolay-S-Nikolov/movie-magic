@@ -182,3 +182,4 @@ Express.js Workshop from JS Back-End SoftUni Course
 - [x] Add userSchema validation
 - [x] Add movieSchema validation
 - [x] Add castShema validation
+- [x] Add custom error messages
