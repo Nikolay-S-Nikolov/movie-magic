@@ -202,3 +202,4 @@ Express.js Workshop from JS Back-End SoftUni Course
 
 ### Bonus
 - [x] Set title handlebars helper
+- [x] Return 404 and message for unauthorized movie edit page

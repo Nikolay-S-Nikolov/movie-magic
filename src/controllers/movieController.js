@@ -91,7 +91,7 @@ movieController.get('/:movieId/edit', isAuth, async (req, res) => {
         const movie = await movieService.getOne(movieId);
 
         if (!movie.creator?.equals(req.user.id)) {
-            return res.redirect(`/movies/${movieId}/details`);
+            return res.status(401).render('404', { error: 'Only creator can edit this movie!' });
         }
 
         const categories = selectCatgory(movie.category);
