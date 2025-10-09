@@ -3,6 +3,7 @@ import { Router } from 'express';
 import movieService from '../services/movieService.js';
 import castService from '../services/castService.js';
 import { isAuth } from '../middlewares/authMiddleware.js';
+import { isCreator } from '../middlewares/movieMiddleware.js';
 import { selectCatgory } from '../utils/categoryUtils.js';
 import { getErrorMessage } from '../utils/errorUtils.js';
 
@@ -53,14 +54,14 @@ movieController.get('/search', async (req, res) => {
     res.render('movies/search', { movies, filter, pageTitle: 'Search Page' });
 });
 
-movieController.get('/:movieId/attach', async (req, res) => {
+movieController.get('/:movieId/attach', isAuth, isCreator, async (req, res) => {
     const movieId = req.params.movieId;
     const movie = await movieService.getOne(movieId);
     const casts = await castService.getAll({ exclude: movie.casts });
     res.render('casts/attach', { movie, casts });
 })
 
-movieController.post('/:movieId/attach', async (req, res) => {
+movieController.post('/:movieId/attach', isAuth, isCreator, async (req, res) => {
     const castId = req.body.cast;
     const movieId = req.params.movieId;
 
@@ -72,27 +73,19 @@ movieController.post('/:movieId/attach', async (req, res) => {
     res.redirect(`/movies/${movieId}/details`);
 })
 
-movieController.get('/:movieId/delete', isAuth, async (req, res) => {
+movieController.get('/:movieId/delete', isAuth, isCreator, async (req, res) => {
     const movieId = req.params.movieId;
     const movie = await movieService.getOne(movieId);
-
-    if (!movie.creator?.equals(req.user.id)) {
-        return res.redirect(`/movies/${movieId}/details`);
-    }
 
     await movieService.delete(movieId);
     res.redirect(`/`);
 })
 
-movieController.get('/:movieId/edit', isAuth, async (req, res) => {
+movieController.get('/:movieId/edit', isAuth, isCreator, async (req, res) => {
     const movieId = req.params.movieId;
 
     try {
         const movie = await movieService.getOne(movieId);
-
-        if (!movie.creator?.equals(req.user.id)) {
-            return res.status(401).render('404', { error: 'Only creator can edit this movie!' });
-        }
 
         const categories = selectCatgory(movie.category);
 
@@ -103,16 +96,12 @@ movieController.get('/:movieId/edit', isAuth, async (req, res) => {
 
 })
 
-movieController.post('/:movieId/edit', isAuth, async (req, res) => {
+movieController.post('/:movieId/edit', isAuth, isCreator, async (req, res) => {
     const editedData = req.body;
     const movieId = req.params.movieId;
 
     try {
         const movie = await movieService.getOne(movieId);
-
-        if (!movie.creator?.equals(req.user.id)) {
-            return res.redirect(`/movies/${movieId}/details`);
-        }
 
         await movieService.edit(movieId, editedData);
 
