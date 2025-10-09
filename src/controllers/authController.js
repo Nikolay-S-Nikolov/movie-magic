@@ -24,7 +24,7 @@ authController.post('/register', isGuest, async (req, res) => {
             errorMessage = err.message;
         }
 
-        res.status(400).render('auth/register', { error: errorMessage });
+        res.status(400).render('auth/register', { error: errorMessage, user: userData });
     }
 });
 

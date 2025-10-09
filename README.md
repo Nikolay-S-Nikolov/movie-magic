@@ -190,3 +190,4 @@ Express.js Workshop from JS Back-End SoftUni Course
 
 - [x] Add resources and error container
 - [x] Register error handling
+- [x] Retain form data on error
