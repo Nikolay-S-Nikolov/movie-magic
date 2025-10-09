@@ -30,7 +30,13 @@ const movieSchema = new Schema({
         type: Number,
         required: [true, 'Year is required'],
         min: [1900, 'Movie can not be created before 1900'],
-        max: [2024, 'The year can not be after 2024'],
+        validate: {
+            validator: function (value) {
+                const currentYear = new Date().getFullYear();
+                return value <= currentYear;
+            },
+            message: function(props){return `The entered year ${props.value} can not be after the current year`},
+        }
     },
     imageUrl: {
         type: String,
