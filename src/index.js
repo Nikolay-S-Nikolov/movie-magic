@@ -6,6 +6,7 @@ import dotenv from 'dotenv';
 
 import authMiddleware from './middlewares/authMiddleware.js'
 import cookieParser from 'cookie-parser';
+import titleHelper from './helpers/titleHelper.js'
 
 dotenv.config();
 const app = express();
@@ -28,6 +29,9 @@ app.engine('hbs', handlebars.engine({
     runtimeOptions: {
         allowProtoMethodsByDefault: true,
         allowProtoPropertiesByDefault: true
+    },
+    helpers:{
+        ...titleHelper,
     }
 }));
 app.set('view engine', 'hbs');

@@ -198,3 +198,7 @@ Express.js Workshop from JS Back-End SoftUni Course
 - [x] Movie details page error handling
 - [x] Movie edit page error handling
 - [x] Set update validators on for movie findByIdAndUpdate
+
+
+### Bonus
+- [x] Set title handlebars helper
