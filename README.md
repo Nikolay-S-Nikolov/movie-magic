@@ -194,3 +194,4 @@ Express.js Workshop from JS Back-End SoftUni Course
 - [x] Add errorUtil.js for message exstraction
 - [x] Login error handling
 - [x] Movie create error handling
+- [x] Cast create error handling
