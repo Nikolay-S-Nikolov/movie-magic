@@ -25,7 +25,7 @@ export default {
         return Movie.findById(movieId);
     },
 
-    getOneDetailed(movieId){
+    getOneDetailed(movieId) {
         return this.getOne(movieId).populate('casts')
     },
 
@@ -39,17 +39,22 @@ export default {
     },
 
     attach(movieId, castId) {
-        return Movie.findByIdAndUpdate(movieId, 
+        return Movie.findByIdAndUpdate(movieId,
             { $addToSet: { casts: castId } },
             { new: true }
         )
     },
 
-    delete(movieId){
+    delete(movieId) {
         return Movie.findByIdAndDelete(movieId)
     },
 
-    edit(movieId, editedData){
-        return Movie.findByIdAndUpdate(movieId,editedData)
+    edit(movieId, editedData) {
+        const opt = { runValidators: true }
+        return Movie.findByIdAndUpdate(
+            movieId,
+            editedData,
+            opt,
+        )
     },
 }
