@@ -43,7 +43,7 @@ movieController.get('/:movieId/details', async (req, res) => {
 
         res.render('movies/details', { movie, rating, pageTitle: movie.title, isCreator });
     } catch (err) {
-        res.redirect('/404');
+        res.render('404', { error: 'Movie not found!' });
     }
 });
 
@@ -86,29 +86,46 @@ movieController.get('/:movieId/delete', isAuth, async (req, res) => {
 
 movieController.get('/:movieId/edit', isAuth, async (req, res) => {
     const movieId = req.params.movieId;
-    const movie = await movieService.getOne(movieId);
 
-    if (!movie.creator?.equals(req.user.id)) {
-        return res.redirect(`/movies/${movieId}/details`);
+    try {
+        const movie = await movieService.getOne(movieId);
+
+        if (!movie.creator?.equals(req.user.id)) {
+            return res.redirect(`/movies/${movieId}/details`);
+        }
+
+        const categories = selectCatgory(movie.category);
+
+        res.render(`movies/edit`, { movie, categories });
+    } catch (err) {
+        res.render('404', { error: 'Movie not found!' })
     }
 
-    const categories = selectCatgory(movie.category);
-
-    res.render(`movies/edit`, { movie, categories });
 })
 
 movieController.post('/:movieId/edit', isAuth, async (req, res) => {
     const editedData = req.body;
     const movieId = req.params.movieId;
-    const movie = await movieService.getOne(movieId);
 
-    if (!movie.creator?.equals(req.user.id)) {
-        return res.redirect(`/movies/${movieId}/details`);
+    try {
+        const movie = await movieService.getOne(movieId);
+
+        if (!movie.creator?.equals(req.user.id)) {
+            return res.redirect(`/movies/${movieId}/details`);
+        }
+
+        await movieService.edit(movieId, editedData);
+
+        res.redirect(`/movies/${movieId}/details`);
+    } catch (err) {
+        res.status(400).render('movies/edit', {
+            movie: editedData,
+            categories: selectCatgory(editedData.category),
+            error: getErrorMessage(err),
+        });
+
     }
 
-    await movieService.edit(movieId, editedData);
-
-    res.redirect(`/movies/${movieId}/details`);
 })
 
 export default movieController;
