@@ -1,5 +1,6 @@
 export function selectCatgory(category) {
     const allCategories = [
+        { value: '', name: 'Select Category' },
         { value: 'tv-show', name: 'TV Show' },
         { value: 'animation', name: 'Animation' },
         { value: 'movie', name: 'Movie'},
