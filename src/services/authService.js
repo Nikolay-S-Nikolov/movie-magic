@@ -6,12 +6,12 @@ import { generateAuthToken } from '../utils/tokenUtils.js'
 export default {
     async register(userData) {
 
-        const emailExists = User.exists({ email: userData.email });
+        const emailExists = await User.exists({ email: userData.email });
         if (emailExists){
             throw new Error('User with this email already exists!');
         }
 
-        const user = User.create(userData);
+        const user = await User.create(userData);
         const token = generateAuthToken(user);
         
         return token;

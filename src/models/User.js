@@ -28,7 +28,6 @@ userSchema.virtual('repassword')
     });
 
 userSchema.pre('validate', function (next) {
-    console.log(`The second password is ${this.repassword}`)
     if (this.isNew && this.repassword !== this.password) {
         this.invalidate(this.password, 'Password missmatch!')
     }

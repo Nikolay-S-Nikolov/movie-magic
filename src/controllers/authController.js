@@ -10,11 +10,22 @@ authController.get('/register', isGuest, (req, res) => {
 });
 
 authController.post('/register', isGuest, async (req, res) => {
-    const userData = req.body
-    const token = await authService.register(userData);
+    const userData = req.body;
+    try {
+        const token = await authService.register(userData);
 
-    res.cookie('auth', token);
-    res.redirect('/');
+        res.cookie('auth', token);
+        res.redirect('/');
+    } catch (err) {
+        let errorMessage = 'Invalid request';
+        if (err.name == 'ValidationError') {
+            errorMessage = Object.values(err.errors).at(0).message;
+        } else {
+            errorMessage = err.message;
+        }
+
+        res.status(400).render('auth/register', { error: errorMessage });
+    }
 });
 
 authController.get('/login', isGuest, (req, res) => {
