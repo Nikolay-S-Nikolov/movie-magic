@@ -17,6 +17,25 @@ const userSchema = new Schema({
     }
 });
 
+// Create a virtual property `rePassword` passed as data to create User.
+userSchema.virtual('repassword')
+    .get(function () {
+        return this._repassword;
+
+    })
+    .set(function (value) {
+        this._repassword = value;
+    });
+
+userSchema.pre('validate', function (next) {
+    console.log(`The second password is ${this.repassword}`)
+    if (this.isNew && this.repassword !== this.password) {
+        this.invalidate(this.password, 'Password missmatch!')
+    }
+    next();
+});
+
+
 userSchema.pre('save', async function () {
     // Generate salt
     // const salt = await bcrypt.genSalt(12);
