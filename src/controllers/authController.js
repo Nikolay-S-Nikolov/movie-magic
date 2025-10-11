@@ -1,10 +1,10 @@
 import { Router } from 'express';
 import authService from '../services/authService.js';
 import { isGuest, isAuth } from '../middlewares/authMiddleware.js';
-import { getErrorMessage } from '../utils/errorUtils.js'
+import { getErrorMessage } from '../utils/errorUtils.js';
+import jwt from 'jsonwebtoken';
 
 const authController = Router();
-
 
 authController.get('/register', isGuest, (req, res) => {
     res.render('auth/register');
@@ -43,8 +43,14 @@ authController.post('/login', isGuest, async (req, res) => {
 
 });
 
-authController.get('/logout', isAuth, (req, res) => {
-    res.clearCookie('auth')
+authController.get('/logout', isAuth, async (req, res) => {
+    const token = req.cookies['auth'];
+    const decoded = jwt.decode(token, process.env.JWT_SECRET);
+    const expiresAt = new Date(decoded.exp * 1000);
+
+    await authService.deactivateToken(token, expiresAt);
+
+    res.clearCookie('auth');
     res.redirect('/');
 });
 

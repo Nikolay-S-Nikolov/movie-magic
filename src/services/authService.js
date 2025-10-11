@@ -1,7 +1,7 @@
 import User from '../models/User.js';
 import bcrypt from 'bcrypt';
 import { generateAuthToken } from '../utils/tokenUtils.js'
-
+import blacklistToken from '../models/blacklistedToken.js';
 
 export default {
     async register(userData) {
@@ -32,6 +32,9 @@ export default {
 
         const token = generateAuthToken(user);
         return token;
-    }
+    },
 
+    async deactivateToken(token, expiresAt){
+        return await blacklistToken.create({token, expiresAt});
+    }
 };

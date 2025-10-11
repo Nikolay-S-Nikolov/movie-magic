@@ -1,10 +1,17 @@
 import jws from 'jsonwebtoken';
+import blacklistToken from '../models/blacklistedToken.js';
 
-export default function authMiddleware(req, res, next) {
+export default async function authMiddleware (req, res, next) {
     const token = req.cookies['auth']; // from middleware cookie-parser for HTTP cookies 
 
     if (!token) {
         return next();
+    }
+
+    const blacklisted = await blacklistToken.findOne({ token });
+    if (blacklisted) {
+        res.clearCookie('auth');
+        return res.redirect('/auth/login');
     }
 
     try {
@@ -19,7 +26,7 @@ export default function authMiddleware(req, res, next) {
         next();
     } catch (err) {
         res.clearCookie('auth');
-        res.redirect('auth/login');
+        res.redirect('/auth/login');
     }
 }
 
